@@ -1,7 +1,7 @@
-# test_dag.py - Created from: https://towardsdatascience.com/set-up-an-airflow-environment-on-aws-in-minutes-f934cf10ec54
-# This code borrows heavily from https://airflow.apache.org/docs/apache-airflow/stable/tutorial.html
+
 from datetime import timedelta
 import logging
+
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
