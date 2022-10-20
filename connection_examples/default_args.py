@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 # DEFAULT ARGS PARAMETER
 default_args = {
     'owner': 'airflow',
-    'email': ['ayushg@ludisanalytics.com'],
+    'email': ['dev@ludisanalytics.com'],
     'email_on_failure': False,
     'email_on_retry': False, 
     'depends_on_past': False,
