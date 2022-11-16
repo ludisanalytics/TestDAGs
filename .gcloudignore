@@ -1,0 +1,4 @@
+gha*
+.github/**
+.git/**
+**/__pycache__/**
