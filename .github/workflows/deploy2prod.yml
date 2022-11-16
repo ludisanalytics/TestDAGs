@@ -2,8 +2,11 @@ name: Local-Airflow-Cluster Production Deploy
 
 on:
   pull_request_review:
-    types: [submitted]
-    branches: [main, master]
+    types:
+      - 'submitted'
+    branches:
+      - 'master'
+      # - 'main'
 
 env:
   from_branch: develop
@@ -11,7 +14,7 @@ env:
   ludis_bucket: us-west1-ludis-airflow-97e54236-bucket
 
 jobs:
-  merge-branch:
+  merge-branch-and-push:
     if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
@@ -23,8 +26,8 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: develop
-          target_branch: master
+          from_branch: '$from_branch' # develop
+          target_branch: '$to_branch' # master
           github_token: ${{ github.token }}
       # DEBUG: Show the current folder
       - name: Echo current folder
