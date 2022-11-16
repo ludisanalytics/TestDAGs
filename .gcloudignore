@@ -2,3 +2,5 @@ gha*
 .github/**
 .git/**
 **/__pycache__/**
+.gitignore
+README.md
