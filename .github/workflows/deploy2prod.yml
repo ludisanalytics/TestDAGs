@@ -2,8 +2,11 @@ name: Local-Airflow-Cluster Production Deploy
 
 on:
   pull_request_review:
-    types: [submitted]
-    branches: [develop, main, master]
+    types:
+      - 'submitted'
+    branches:
+      - 'master'
+      # - 'main'
 
 env:
   from_branch: develop
@@ -11,8 +14,8 @@ env:
   ludis_bucket: us-west1-ludis-airflow-97e54236-bucket
 
 jobs:
-  merge-branch:
-    if: github.event.review.state == 'approved'
+  merge-branch-and-push:
+    if: github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'master'
     runs-on: ubuntu-latest
     steps:
       # Checkout the repo on the runner first
