@@ -3,7 +3,7 @@ name: Local-Airflow-Cluster Production Deploy
 on:
   pull_request_review:
     types: [submitted]
-    branches: [develop, main, master]
+    branches: [main, master]
 
 env:
   from_branch: develop
