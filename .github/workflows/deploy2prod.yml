@@ -1,4 +1,4 @@
-name: Local-Airflow-Cluster Production Deploy
+name: Ludis Production Deploy
 
 on:
   pull_request_review:
