@@ -15,7 +15,7 @@ env:
 
 jobs:
   merge-branch-and-push:
-    if: github.event.review.state == 'approved'
+    if: github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'master'
     runs-on: ubuntu-latest
     steps:
       # Checkout the repo on the runner first
