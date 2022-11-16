@@ -26,8 +26,8 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: '$from_branch' # develop
-          target_branch: '$to_branch' # master
+          from_branch: develop
+          target_branch: master
           github_token: ${{ github.token }}
       # DEBUG: Show the current folder
       - name: Echo current folder
