@@ -1,20 +1,9 @@
 # Test Apps Repo
 
 This repo contains DAGs used for testing and as examples for different DAG setups and connections:
+## Test DAG Repo Structure
 
-## DAG Basics
-
-The `dag_basics_examples/` folder contains very basic examples for setting up DAGs, such as:
-
-* Basic DAG setup
-* Sequential Tasks
-* Parallel Tasks
-
-## DAG Basics
-
-The `connection_examples/` folder contains examples for setting up connections in DAGs, such as:
-
-* Kubernetes Pods
-* AWS
-* GCP
-* Databases
+Currently the TestDag repo is divided into the following folders:
+* DAG Basic Examples - This folder houses DAGs used for testing basic Airflow/DAG principles
+* Connection Examples - This folder shows DAG examples used to interface with other services or systems (i.e. Docker, Kubernetes, GCP, AWS, etc...)
+* Language and Framework Examples - This folder shows DAG examples for running scripts and projects using other frameworks and languages (R, Juypter, etc...)
