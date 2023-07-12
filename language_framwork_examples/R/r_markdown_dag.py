@@ -15,13 +15,14 @@
 # https://ludisanalytics.github.io/documentation/#/deploy_workflows
 
 # Imports
-
+import os
 from airflow import DAG
 from airflow.models import Variable
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.dummy_operator import DummyOperator
 from datetime import datetime
+home = os.environ['HOME']
 # Import your python def
 # from 91ae0cea-be83-4fcc-9fae-08948312b733.[file] import [def]
 
@@ -52,13 +53,13 @@ with dag:
     html_task = BashOperator(
         task_id='html_output_task',
         # bash_command='Rscript /home/airflow/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/HTML_MWE.Rmd',
-        bash_command="R -e rmarkdown::render('/home/airflow/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/HTML_MWE.Rmd', output_file='/home/airflow/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/HTML_MWE.html')"
+        bash_command="Rscript -e \"rmarkdown::render('" + home + "/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/HTML_MWE.Rmd', output_file='" + home + "/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/HTML_MWE.html')\""
     )
 
     pdf_task = BashOperator(
         task_id='pdf_output_task',
         # bash_command='Rscript /home/airflow/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/PDF_MWE.Rmd',
-        bash_command="R -e rmarkdown::render('/home/airflow/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/PDF_MWE.Rmd', output_file='/home/airflow/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/PDF_MWE.pdf')"
+        bash_command="Rscript -e \"rmarkdown::render('" + home + "/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/PDF_MWE.Rmd', output_file='" + home + "/dags/TestDAGs/language_framwork_examples/R/r_markdown_example_scripts/PDF_MWE.pdf')\""
 
     )
 

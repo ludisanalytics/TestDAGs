@@ -15,7 +15,7 @@
 # https://ludisanalytics.github.io/documentation/#/deploy_workflows
 
 # Imports
-
+import os
 from airflow import DAG
 from airflow.models import Variable
 from airflow.operators.bash_operator import BashOperator
@@ -23,6 +23,8 @@ from airflow.operators.python_operator import PythonOperator
 from datetime import datetime
 # Import your python def
 # from 91ae0cea-be83-4fcc-9fae-08948312b733.[file] import [def]
+
+home = os.environ['HOME']
 
 # Using variables
 # airflow_variables = Variable.get("91ae0cea-be83-4fcc-9fae-08948312b733", deserialize_json=True)
@@ -55,7 +57,7 @@ with dag:
 
     R_task = BashOperator(
         task_id='R_task',
-        bash_command='Rscript /home/airflow/dags/TestDAGs/language_framwork_examples/R/hello_world.R',
+        bash_command='Rscript ' + home + '/dags/TestDAGs/language_framwork_examples/R/hello_world.R',
     )
 
     # Example of using a Python Operator to wrap a function as a task
@@ -73,4 +75,3 @@ with dag:
     bash_task.doc_md = "Bash task documentation"
     python_task.doc_md = "Python task documentation"
     R_task.doc_md = "R task documentation"
-
